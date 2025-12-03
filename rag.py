@@ -78,7 +78,6 @@ def gerar_resposta(pergunta, contexto):
     """Monta o prompt e chama a API da Groq."""
     prompt = f"""
     Você é um assistente corporativo. Responda usando APENAS o contexto abaixo.
-    Se a resposta não estiver no contexto, diga "Não encontrei essa informação".
 
     CONTEXTO:
     {contexto}
@@ -90,7 +89,7 @@ def gerar_resposta(pergunta, contexto):
     stream = client_groq.chat.completions.create(
         model=MODELO_IA,
         messages=[{"role": "user", "content": prompt}],
-        temperature=0.2,
+        temperature=1,
         stream=True
     )
 
