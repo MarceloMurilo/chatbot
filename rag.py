@@ -10,7 +10,7 @@ load_dotenv() # Carrega sua GROQ_API_KEY do arquivo .env
 PASTA_DOCUMENTS = "./documentos"
 
 # Modelo recomendado para Groq (Rápido e bom em Português)
-MODELO_IA = "llama3-8b-8192" 
+MODELO_IA = "openai/gpt-oss-120b" 
 
 # Inicialização dos Clientes
 client_groq = Groq(api_key=os.environ.get("GROQ_API_KEY"))
@@ -148,6 +148,8 @@ def gerar_resposta(pergunta, contexto):
             model=MODELO_IA,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3, # Baixa temperatura para ser mais fiel aos dados
+            top_p=0.1,
+            reasoning_effort="medium",
             stream=True
         )
 
