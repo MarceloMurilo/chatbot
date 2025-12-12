@@ -4,6 +4,8 @@ pypdf
 python-docx
 groq
 fastapi
-uvicorn
+uvicorn[standard]
+python-multipart
 google-generativeai
 google-cloud-speech
+python-multipart
