@@ -390,20 +390,34 @@ async def inicializar_banco_vetorial():
         print(f"[startup] - Arquivo doc-info.txt existe: {arquivo_existe}")
         print(f"[startup] - Caminho do arquivo: {doc_info_path}")
         
-        # Sempre processa se o banco está vazio
-        if count == 0:
-            print("[startup] 🔄 Banco vetorial vazio. Iniciando ingestão automática...")
-            if arquivo_existe:
-                processar_arquivos()
-                count_apos = colecao_global.count()
-                if count_apos > 0:
-                    print(f"[startup] ✅ Ingestão concluída. {count_apos} chunks no banco vetorial.")
-                else:
-                    print(f"[startup] ⚠️ Ingestão executada mas nenhum chunk foi criado. Verifique os arquivos.")
+        # FORÇA ingestão sempre que o arquivo existir (garante que doc-info.txt seja processado)
+        if arquivo_existe:
+            if count == 0:
+                print("[startup] 🔄 Banco vetorial vazio. Iniciando ingestão automática...")
             else:
-                print(f"[startup] ⚠️ Arquivo doc-info.txt não encontrado. Banco vetorial não será populado.")
+                print(f"[startup] 🔄 Banco possui {count} chunks, mas forçando reprocessamento para garantir sincronia...")
+            
+            # Limpa a coleção antes de reprocessar (evita duplicatas)
+            try:
+                # Deleta todos os documentos existentes
+                if count > 0:
+                    todos_ids = colecao_global.get()["ids"]
+                    if todos_ids:
+                        colecao_global.delete(ids=todos_ids)
+                        print(f"[startup] 🗑️ Limpou {len(todos_ids)} chunks antigos")
+            except Exception as e:
+                print(f"[startup] ⚠️ Erro ao limpar coleção (pode ignorar): {e}")
+            
+            # Processa os arquivos
+            processar_arquivos()
+            count_apos = colecao_global.count()
+            if count_apos > 0:
+                print(f"[startup] ✅ Ingestão concluída. {count_apos} chunks no banco vetorial.")
+            else:
+                print(f"[startup] ⚠️ Ingestão executada mas nenhum chunk foi criado. Verifique os arquivos.")
         else:
-            print(f"[startup] ✅ Banco vetorial já possui {count} chunks. Sistema pronto.")
+            print(f"[startup] ⚠️ Arquivo doc-info.txt não encontrado em {doc_info_path}")
+            print(f"[startup] ⚠️ Banco vetorial não será populado. Verifique se o arquivo está no repositório.")
     except Exception as e:
         print(f"[startup] ❌ Erro ao inicializar banco vetorial: {e}")
         import traceback
