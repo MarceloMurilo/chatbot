@@ -1,0 +1,298 @@
+KNOWLEDGE BASE: BRAZILIAN BUREAUCRACY & DOCUMENTATION V.2025
+[META-DADOS DO SISTEMA]
+Objetivo: Diagnóstico, resolução e orientação sobre documentação civil brasileira. Lógica de Dependência: Cadeia de Custódia (Certidão -> CPF -> RG -> Gov.br -> Outros). Nível de Detalhe: Especialista/Despachante.
+
+MÓDULO 1: O EIXO CENTRAL - CPF (CADASTRO DE PESSOAS FÍSICAS)
+[DEFINIÇÃO CRÍTICA] O CPF não é um documento físico, é um número de banco de dados gerido pela Receita Federal (RFB). É a chave primária do cidadão. Se o CPF trava, nenhum outro documento pode ser emitido (nem RG, nem Passaporte, nem CNH, nem Benefícios).
+
+[ESTADOS DO CPF E SOLUÇÕES]
+
+1. SITUAÇÃO: REGULAR
+
+Significado: Cadastro sem pendências.
+
+Observação: Estar "Regular" não significa que o nome está igual ao do RG. Pode haver divergência de grafia (Letra trocada).
+
+2. SITUAÇÃO: PENDENTE DE REGULARIZAÇÃO
+
+Causa Raiz: Omissão de Declaração de Imposto de Renda (DIRPF) em pelo menos um dos últimos 5 anos.
+
+Diagnóstico: O cidadão pode ter operado na Bolsa (R$ 1,00 que seja), vendido imóvel, ou recebido acima do teto (aprox. R$ 28k/ano) e esqueceu de declarar.
+
+Solução Prática:
+
+Acessar o portal e-CAC (Centro Virtual de Atendimento).
+
+Verificar qual ano consta como "Omisso".
+
+Baixar o programa da Receita ou usar o app "Meu Imposto de Renda".
+
+Enviar a declaração (mesmo que atrasada e pagando multa mínima de R$ 165,74 se houver imposto devido).
+
+Aguardar processamento (24h a 48h).
+
+3. SITUAÇÃO: SUSPENSO
+
+Causa Raiz: Dados cadastrais incompletos ou incorretos. A causa mais comum é a Desatualização do Título de Eleitor. A Receita cruza dados com o TSE.
+
+Solução Prática:
+
+Primeiro: Regularizar o Título de Eleitor no site do TSE (pagar multas).
+
+Segundo: Entrar no site da Receita Federal em "Pedido de Regularização de CPF".
+
+Terceiro: Se não resolver online, agendar atendimento presencial na Receita.
+
+4. SITUAÇÃO: CANCELADO
+
+Causa Raiz: Multiplicidade (duas pessoas com mesmo CPF), Decisão Judicial ou Óbito.
+
+Solução: Exclusivamente presencial. Requer agendamento e dossiê probatório.
+
+5. SITUAÇÃO: NULO
+
+Causa Raiz: Fraude constatada.
+
+Solução: Via judicial ou processo administrativo complexo.
+
+[LINKS ÚTEIS - CPF]
+
+Consulta de Situação (Pública): https://servicos.receita.fazenda.gov.br/Servicos/CPF/ConsultaSituacao/ConsultaPublica.asp
+
+Atualização de Dados Cadastrais (Online): https://servicos.receita.fazenda.gov.br/Servicos/CPF/alterar/default.asp
+
+Regularizar CPF Suspenso: https://servicos.receita.fazenda.gov.br/Servicos/CPF/regularizar/Default.asp
+
+MÓDULO 2: CARTEIRA DE IDENTIDADE NACIONAL (CIN / NOVO RG)
+[MUDANÇA DE PARADIGMA] A CIN acaba com o número de RG estadual. O número do documento passa a ser o próprio CPF. Barreira de Entrada: Os dados do CPF na Receita Federal DEVEM estar idênticos (letra por letra) à Certidão de Nascimento/Casamento apresentada.
+
+[ERROS DE EMISSÃO COMUNS - CIN]
+
+ERRO: "Dados divergentes na Receita Federal"
+
+Cenário: Maria casou, mudou o nome no cartório e no RG antigo, mas nunca atualizou o CPF na Receita.
+
+Consequência: O sistema do Instituto de Identificação (VIVA/Detran/Poupatempo) bloqueia a emissão da CIN.
+
+Resolução Obrigatória:
+
+Ir ao site da Receita Federal -> Alteração de Dados Cadastrais.
+
+Atualizar o nome para igualar à Certidão de Casamento.
+
+Aguardar 24h para replicação do banco de dados.
+
+Retornar ao posto de identificação.
+
+ERRO: "Estado Civil Inconsistente"
+
+Cenário: Pessoa divorciada apresenta Certidão de Nascimento ou Certidão de Casamento sem a averbação do divórcio.
+
+Regra de Ouro: O documento de origem deve refletir o estado civil atual.
+
+Solteiro -> Certidão de Nascimento.
+
+Casado -> Certidão de Casamento.
+
+Divorciado/Separado -> Certidão de Casamento com Averbação de Divórcio.
+
+Viúvo -> Certidão de Casamento com Averbação de Óbito (ou certidão de óbito anexa, dependendo do estado).
+
+[ESPECIFICIDADES TÉCNICAS]
+
+Validade: 0-11 anos (5 anos) | 12-59 anos (10 anos) | 60+ (Indeterminada).
+
+Biometria: Coleta obrigatória de digitais, foto e assinatura no local.
+
+Versão Digital: Acessível via app GOV.BR somente após a emissão e retirada do documento físico. O QR Code do físico ativa o digital.
+
+Foto: Não pode usar camisa branca (fundo é branco), não pode óculos escuros, não pode adereços de cabeça (salvo motivo religioso comprovado).
+
+MÓDULO 3: JUSTIÇA ELEITORAL (A CHAVE OCULTA)
+[REGRA DE INTERDEPENDÊNCIA] Se o Título de Eleitor for cancelado, o CPF é suspenso em até 60 dias. Isso bloqueia contas bancárias e Passaporte.
+
+[PROBLEMAS E SOLUÇÕES]
+
+1. MULTA ELEITORAL
+
+Causa: Não votou e não justificou.
+
+Valor: Aprox. R$ 3,51 por turno.
+
+Resolução: Gerar GRU ou pagar via PIX no "Autoatendimento Eleitoral" do site do TSE. Baixa em minutos ou até 48h.
+
+2. TÍTULO CANCELADO
+
+Causa: 3 eleições consecutivas sem votar/justificar OU não comparecimento à Revisão de Eleitorado (Biometria obrigatória).
+
+Consequência: CPF Suspenso.
+
+Resolução (Operação RAE): Requerimento de Alistamento Eleitoral. Deve ser feito online (Títulonet) ou presencial. Exige envio de selfie segurando documento.
+
+3. FECHAMENTO DE CADASTRO (ANO ELEITORAL)
+
+Período Crítico: De Maio até o final das eleições (Outubro/Novembro).
+
+Bloqueio: Ninguém tira novo título, transfere ou regulariza cancelamento nesse período.
+
+Workaround (Solução de Contorno): Solicitar "Certidão Circunstanciada" no cartório eleitoral. Serve provisoriamente para trabalho e passaporte, mas não reativa o CPF.
+
+[LINKS ÚTEIS - TSE]
+
+Autoatendimento (Multas/Situação): https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral
+
+MÓDULO 4: PASSAPORTE (POLÍCIA FEDERAL)
+[GARGALOS DE EMISSÃO]
+
+1. O BLOQUEIO MILITAR (HOMENS)
+
+Regra: Homens de 18 a 45 anos precisam estar quites com o serviço militar.
+
+Erro Comum: O sistema da PF cruza dados com o SERMIL. Se não deu baixa ou não jurou bandeira, trava.
+
+Resolução: Procurar Junta de Serviço Militar.
+
+2. O BLOQUEIO ELEITORAL
+
+Regra: Não pode haver multas ou título cancelado.
+
+Erro Comum: Pagar a multa no dia do agendamento. O sistema bancário demora a compensar.
+
+Dica: Pagar multas pelo menos 3 dias úteis antes de solicitar o passaporte.
+
+3. PASSAPORTE DE MENOR
+
+Exigência Crítica: Presença de AMBOS os pais no momento da solicitação OU formulário de autorização com firma reconhecida do pai ausente.
+
+Foto: Crianças menores de 3 anos devem levar 1 foto 5x7 (fundo branco, colorida, recente). Maiores de 3 anos tiram foto na hora.
+
+4. PASSAPORTE DE EMERGÊNCIA
+
+Critério: Catástrofes, saúde, trabalho inadiável, ajuda humanitária. Turismo não é emergência.
+
+Diferença: Validade curta (1 ano), mais caro, entregue em 24h. Não aceita em todos os países (ex: Europa aceita, mas exige visto em alguns casos onde o comum não exigiria).
+
+[LINKS ÚTEIS - PF]
+
+Formulário de Solicitação: https://servicos.dpf.gov.br/sinpa/primeiraViaPassaporte.do
+
+MÓDULO 5: CNH (CARTEIRA NACIONAL DE HABILITAÇÃO)
+[A ARMADILHA DO TOXICOLÓGICO]
+
+Alvo: Categorias C, D, E.
+
+Regra: Exame a cada 2 anos e meio (periódico) + na renovação.
+
+Janela de Multa: Dirigir com toxicológico vencido há mais de 30 dias = Infração Gravíssima x5 (R$ 1.467,35).
+
+Detalhe Sutil: Mesmo que você não dirija caminhão, se sua CNH tem a letra C/D/E, você é obrigado a fazer o exame para renovar, ou deve pedir o "Rebaixamento de Categoria" para B (carro) antes de renovar.
+
+[CNH DIGITAL VS FÍSICA]
+
+A CNH Digital tem a mesma validade jurídica da impressa.
+
+Bloqueio de Download: Para baixar a CNH Digital (CDT), a CNH física já deve ter sido emitida e possuir QR Code (modelos a partir de maio/2017).
+
+Venda de Veículo: Agora é possível fazer a transferência (ATPV-e) direto pelo app Carteira Digital de Trânsito, sem ir ao cartório, desde que comprador e vendedor tenham conta Gov.br Ouro ou Prata.
+
+MÓDULO 6: GOV.BR (A IDENTIDADE DIGITAL)
+[NÍVEIS DE ACESSO E COMO SUBIR]
+
+NÍVEL BRONZE (Básico)
+
+Cadastro via formulário INSS ou Receita Federal.
+
+Acessa poucos serviços. Não acessa "Valores a Receber".
+
+NÍVEL PRATA (Intermediário)
+
+Como conseguir:
+
+Login através de banco credenciado (Itaú, BB, Bradesco, CEF, Santander, Sicoob, etc.). O Gov.br valida que você tem senha no banco.
+
+Biometria Facial baseada na CNH (precisa ter CNH emitida após 2017).
+
+NÍVEL OURO (Avançado)
+
+Como conseguir:
+
+Biometria Facial baseada na Justiça Eleitoral (TSE). Requer que o cidadão tenha feito o cadastro biométrico no cartório eleitoral.
+
+Certificado Digital (e-CPF) pago.
+
+Poderes: Assinatura digital de documentos com validade legal, acesso total ao e-CAC, transferências de veículos, Prova de Vida digital.
+
+[RECUPERAÇÃO DE CONTA]
+
+O maior problema de suporte. O usuário perdeu o celular e o e-mail cadastrado.
+
+Solução: Usar a opção "Reconhecimento Facial" no aplicativo Gov.br do celular para resetar a senha, sem precisar do e-mail antigo.
+
+MÓDULO 7: CERTIDÕES (A BASE DE TUDO)
+[TIPOS DE CERTIDÃO E VALIDADE]
+
+1. CERTIDÃO DE INTEIRO TEOR
+
+Cópia fiel (digitada ou reprográfica) de tudo que está no livro do cartório.
+
+Uso: Processos de Dupla Cidadania, Casamento, Retificação de Nome.
+
+2. CERTIDÃO DE BREVE RELATO (PADRÃO)
+
+A certidão comum que todos têm. Resumo dos dados principais.
+
+3. PRAZO DE VALIDADE
+
+Certidões de Registro Civil não "vencem" por lei, mas cartórios de notas e órgãos de identificação (Passaporte/RG) exigem certidões emitidas há menos de 90 dias ou 6 meses para garantir que o estado civil não mudou (evitar bigamia).
+
+4. BUSCA DE CERTIDÃO PERDIDA
+
+Se o usuário não sabe onde foi registrado.
+
+Ferramenta: CRC Nacional (registrocivil.org.br). Permite buscar pelo nome e CPF em cartórios de todo o país.
+
+MÓDULO 8: TROUBLESHOOTING GERAL (ALGORITMO DE DIAGNÓSTICO)
+SE O USUÁRIO DISSER... -> VERIFIQUE ISSO:
+
+"Não consigo agendar meu RG."
+
+Verifique se há vagas liberadas às 08:00am.
+
+Verifique se o CPF dele está Regular na Receita.
+
+Verifique se ele tem conta Gov.br (muitos agendamentos exigem login).
+
+"Meu Bolsa Família foi cortado."
+
+Verifique se é "Unipessoal".
+
+Verifique se há pendência no CPF de algum membro da família (crianças incluídas).
+
+Verifique frequência escolar e vacinação.
+
+"Não consigo baixar minha CNH Digital."
+
+Verifique se o e-mail no cadastro do Denatran está atualizado.
+
+Verifique se a CNH física tem QR Code no verso.
+
+"Preciso viajar semana que vem e não tenho passaporte."
+
+Única opção: Passaporte de Emergência (se houver motivo comprovado) OU viajar apenas para Mercosul (Argentina, Uruguai, Paraguai, Chile, etc.) usando RG em bom estado (menos de 10 anos).
+
+Atenção: CNH não vale para imigração, mesmo no Mercosul. Apenas RG ou Passaporte.
+
+MÓDULO 9: TABELA DE CUSTOS ESTIMADOS (MÉDIA NACIONAL 2024/2025)
+1ª Via RG/CIN: Gratuita (Lei Federal).
+
+2ª Via RG/CIN: Varia por estado (Média R$ 40,00 - R$ 90,00).
+
+Passaporte Comum: R$ 257,25.
+
+Passaporte Urgência/Emergência: R$ 334,42.
+
+Passaporte (Sem apresentar o anterior válido): R$ 514,50 (Multa).
+
+2ª Via CNH: Aprox. R$ 50,00 - R$ 120,00 (Taxa Detran) + Envio.
+
+Certidão Cartório (2ª Via): Aprox. R$ 50,00 - R$ 150,00 (Varia por estado + Frete).

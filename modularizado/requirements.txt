@@ -1,0 +1,9 @@
+chromadb
+python-dotenv
+pypdf
+python-docx
+groq
+fastapi
+uvicorn
+google-generativeai
+google-cloud-speech
