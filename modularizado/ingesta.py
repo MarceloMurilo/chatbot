@@ -39,9 +39,13 @@ def extrair_texto(caminho_arquivo):
     return None
 
 def processar_arquivos():
+    """
+    Processa todos os arquivos na pasta de documentos e os adiciona ao banco vetorial.
+    """
     if not os.path.exists(PASTA_DOCUMENTOS):
-        os.makedirs(PASTA_DOCUMENTOS)
-        print("Pasta criada. Adicione arquivos e tente novamente.")
+        os.makedirs(PASTA_DOCUMENTOS, exist_ok=True)
+        print(f"[ingesta] Pasta criada: {PASTA_DOCUMENTOS}")
+        print("[ingesta] Adicione arquivos e tente novamente.")
         return
 
     arquivos = [
@@ -49,26 +53,41 @@ def processar_arquivos():
         if f.endswith((".txt", ".pdf", ".docx"))
     ]
 
+    if not arquivos:
+        print(f"[ingesta] ⚠️ Nenhum arquivo encontrado em {PASTA_DOCUMENTOS}")
+        return
+
+    print(f"[ingesta] Encontrados {len(arquivos)} arquivo(s) para processar")
     total_chunks = 0
 
     for nome in arquivos:
         caminho = os.path.join(PASTA_DOCUMENTOS, nome)
+        print(f"[ingesta] Processando: {nome}")
         texto = extrair_texto(caminho)
 
         if not texto:
+            print(f"[ingesta] ⚠️ Não foi possível extrair texto de {nome}")
+            continue
+
+        if len(texto.strip()) == 0:
+            print(f"[ingesta] ⚠️ Arquivo {nome} está vazio")
             continue
 
         chunks = dividir_texto(texto)
         ids = [f"{nome}_part_{i}" for i in range(len(chunks))]
         metadados = [{"origem": nome, "parte": i} for i in range(len(chunks))]
 
-        colecao_global.upsert(
-            documents=chunks,
-            ids=ids,
-            metadatas=metadados
-        )
+        try:
+            colecao_global.upsert(
+                documents=chunks,
+                ids=ids,
+                metadatas=metadados
+            )
+            total_chunks += len(chunks)
+            print(f"[ingesta] ✅ {nome}: {len(chunks)} chunks salvos ({len(texto)} caracteres)")
+        except Exception as e:
+            print(f"[ingesta] ❌ Erro ao salvar {nome}: {e}")
+            import traceback
+            traceback.print_exc()
 
-        total_chunks += len(chunks)
-        print(f"{nome}: {len(chunks)} chunks salvos")
-
-    print(f"Ingestão finalizada. Total: {total_chunks}")
+    print(f"[ingesta] ✅ Ingestão finalizada. Total: {total_chunks} chunks processados")

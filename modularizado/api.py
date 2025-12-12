@@ -360,6 +360,56 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Inicialização automática: processa documentos na inicialização
+@app.on_event("startup")
+async def inicializar_banco_vetorial():
+    """
+    Inicializa o banco vetorial processando os documentos na pasta documentos/
+    quando o servidor inicia.
+    """
+    try:
+        from banco_dados import colecao_global
+        import os
+        from config import PASTA_DOCUMENTOS
+        
+        # Verifica se a pasta de documentos existe
+        if not os.path.exists(PASTA_DOCUMENTOS):
+            print(f"[startup] ⚠️ Pasta de documentos não encontrada: {PASTA_DOCUMENTOS}")
+            os.makedirs(PASTA_DOCUMENTOS, exist_ok=True)
+            print(f"[startup] ✅ Pasta criada: {PASTA_DOCUMENTOS}")
+        
+        # Verifica se a coleção já tem documentos
+        count = colecao_global.count()
+        
+        # Verifica se existe o arquivo doc-info.txt
+        doc_info_path = os.path.join(PASTA_DOCUMENTOS, "doc-info.txt")
+        arquivo_existe = os.path.exists(doc_info_path)
+        
+        print(f"[startup] Verificando banco vetorial...")
+        print(f"[startup] - Chunks no banco: {count}")
+        print(f"[startup] - Arquivo doc-info.txt existe: {arquivo_existe}")
+        print(f"[startup] - Caminho do arquivo: {doc_info_path}")
+        
+        # Sempre processa se o banco está vazio
+        if count == 0:
+            print("[startup] 🔄 Banco vetorial vazio. Iniciando ingestão automática...")
+            if arquivo_existe:
+                processar_arquivos()
+                count_apos = colecao_global.count()
+                if count_apos > 0:
+                    print(f"[startup] ✅ Ingestão concluída. {count_apos} chunks no banco vetorial.")
+                else:
+                    print(f"[startup] ⚠️ Ingestão executada mas nenhum chunk foi criado. Verifique os arquivos.")
+            else:
+                print(f"[startup] ⚠️ Arquivo doc-info.txt não encontrado. Banco vetorial não será populado.")
+        else:
+            print(f"[startup] ✅ Banco vetorial já possui {count} chunks. Sistema pronto.")
+    except Exception as e:
+        print(f"[startup] ❌ Erro ao inicializar banco vetorial: {e}")
+        import traceback
+        traceback.print_exc()
+        # Não bloqueia o servidor se der erro na ingestão
+
 
 @app.get("/health")
 def health():
